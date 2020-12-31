@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<h1 style="text-align: center; color: rgb(3, 59, 133)">Organize it allwith Todoist</h1>
+<h1 style="text-align: center; color: rgb(2, 104, 187);">Achieve peace of mind with Todoist</h1>
+    
+    <img src="./img/undraw_Personal_goals_re_iow7.png" alt="">
+    
+    <div class="box">
+        <a class="btn btn-success add" href="{% url 'add' %}">Add +</a><br>
+    {% for x in text %}
+        <button class="btn btn-outline-dark btn-block text">{{ x.inputfiled }}</button>
+        <a class="edit btn btn-warning" href="{% url 'edit' x.pk %}">Edit</a>
+        <a class="delete btn btn-danger" href="{% url 'delete' x.pk %}">Delete</a>
+    {% endfor %}
+</div>
+
+<style>
+    body {
+        background-color: rgb(187, 241, 248);
+    }
+    .box {
+        background-color: rgb(243, 244, 245);
+        width: 850px;
+        height: 500px;
+        padding-left: 8px;
+        padding-top: 8px;
+        margin-left: 200px;
+        border: 2px solid rgb(5, 117, 161);
+    }
+    .add {
+        margin-bottom: 5px;
+    }
+    .text {
+        width: 700px;
+        margin-bottom: 5px;
+    }
+    .edit {
+        color: brown;
+    }
+    .delete {
+
+    }
+</style>
+
+{% endblock %}
